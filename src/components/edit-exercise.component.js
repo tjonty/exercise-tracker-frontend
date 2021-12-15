@@ -24,7 +24,7 @@ export default class EditExercise extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://exercise-tracker-nr.herokuapp.com/exercises/'+this.props.match.params.id)
+        axios.get('https://exercise-tracker-be.herokuapp.com/exercises/'+this.props.match.params.id)
             .then(res => {
                 console.log('edit data: '+ res.data);
                 this.setState({
@@ -34,7 +34,7 @@ export default class EditExercise extends Component {
                     date: new Date(res.data.date) 
                 })
             })
-        axios.get('https://exercise-tracker-nr.herokuapp.com/users/')
+        axios.get('https://exercise-tracker-be.herokuapp.com/users/')
             .then(res => {
                 if (res.data.length > 0) {
                     this.setState({
@@ -81,7 +81,7 @@ export default class EditExercise extends Component {
 
         console.log(exercise);
 
-        axios.post('https://exercise-tracker-nr.herokuapp.com/exercises/update/'+this.props.match.params.id, exercise)
+        axios.post('https://exercise-tracker-be.herokuapp.com/exercises/update/'+this.props.match.params.id, exercise)
             .then(res => console.log(res.data))
             .catch((err) => console.log(err));
 

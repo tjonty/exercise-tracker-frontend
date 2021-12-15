@@ -30,7 +30,7 @@ export default class CreateUser extends Component {
 
         console.log(user);
 
-        axios.post('https://exercise-tracker-nr.herokuapp.com/users/add', user)
+        axios.post('https://exercise-tracker-be.herokuapp.com/users/add', user)
             .then(res => console.log(res.data))
             .catch((err) => console.log(err));
 
